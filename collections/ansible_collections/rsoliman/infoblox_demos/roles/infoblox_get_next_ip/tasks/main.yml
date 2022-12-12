@@ -10,10 +10,10 @@
 
 - name: set the fact for the IP address
   ansible.builtin.set_fact:
-    nios_next_ip_address: "{{ ipaddr }}"
+    nios_next_ip_address: "{{ ipaddr[0] }}"
 
 - name: Set the stat for the IP Address
   ansible.builtin.set_stats:
     data:
-      nios_next_ip_address: "{{ ipaddr }}"
+      nios_next_ip_address: "{{ ipaddr[0] }}"
 
