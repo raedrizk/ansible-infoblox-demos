@@ -1,0 +1,7 @@
+---
+nios_provider:
+  host: "{{ infoblox_host }}"
+  username: "{{ infoblox_username }}"
+  password: "{{ infoblox_password }}"
+
+new_host_name: "{{ new_host_name_choice | default('host.ansible.com') }}"

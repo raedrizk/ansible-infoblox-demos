@@ -1,0 +1,7 @@
+---
+- name: Remove a host
+  hosts: localhost
+  gather_facts: false
+
+  roles:
+  - rsoliman.infoblox_demos.infoblox_remove_host

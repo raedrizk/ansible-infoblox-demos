@@ -1,0 +1,13 @@
+---
+- name: Add an ipv4 host record
+  infoblox.nios_modules.nios_host_record:
+    name: "{{ new_host_name }}"
+    ipv4:
+      - address: "{{ new_host_ip_addr }}"
+    aliases:
+      - "{{ new_host_alias }}"
+    comment: "{{ new_host_comment }}"
+    state: present
+    provider: "{{ nios_provider }}"
+
+  

@@ -1,0 +1,7 @@
+---
+- name: Get the next available IP
+  hosts: localhost
+  gather_facts: false
+
+  roles:
+  - rsoliman.infoblox_demos.infoblox_get_next_ip

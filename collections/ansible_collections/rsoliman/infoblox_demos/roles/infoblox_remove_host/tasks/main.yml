@@ -1,0 +1,16 @@
+---
+- name: Remove an ipv4 host record
+  ansible.builtin.uri:
+    url: https://{{ infoblox_host }}/wapi/v2.9.7/request
+    user: "{{ infoblox_username }}"
+    password: "{{ infoblox_password }}"
+    method: POST
+    body: "[{\"method\":
+\"STATE:ASSIGN\",\"data\":{\"host_name\":\"{{ new_host_name }}\"}},{\"method\":\"GET\",\"object\":
+\"record:host\",\"data\": {\"name\":\"##STATE:host_name:##\"},\"assign_state\": {\"host_ref\":
+\"_ref\"},\"enable_substitution\": true,\"discard\": true},{ \"method\": \"DELETE\", \"object\":
+\"##STATE:host_ref:##\",\"enable_substitution\": true,\"discard\": true},{\"method\": \"STATE:DISPLAY\"}]"
+    force_basic_auth: yes
+    status_code: 201
+    body_format: json
+    validate_certs: false

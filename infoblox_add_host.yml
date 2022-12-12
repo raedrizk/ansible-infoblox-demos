@@ -1,0 +1,7 @@
+---
+- name: Add a new host
+  hosts: localhost
+  gather_facts: false
+
+  roles:
+  - rsoliman.infoblox_demos.infoblox_add_host
