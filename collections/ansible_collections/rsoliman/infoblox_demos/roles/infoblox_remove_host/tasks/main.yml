@@ -16,5 +16,5 @@
     validate_certs: false
   register: result
   ignore_errors: true
-  failed_when: "'The operation returned an empty list' not in result.json.Error"
+  failed_when: "result.json.Error is defined and 'The operation returned an empty list' not in result.json.Error"
 
