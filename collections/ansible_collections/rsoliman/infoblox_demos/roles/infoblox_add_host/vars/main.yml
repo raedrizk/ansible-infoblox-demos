@@ -4,7 +4,7 @@ nios_provider:
   username: "{{ infoblox_username }}"
   password: "{{ infoblox_password }}"
 
-new_host_name: "{{ new_host_name_choice | default('host.ansible.com') }}"
-new_host_alias: "{{ new_host_alias_choice | default('alias.ansible.com') }}"
+new_host_name: "{{ ec2_name_tag_choice if (ec2_name_tag_choice is defined and ec2_name_tag_choice != '') else new_host_name_choice | default('host.ansible.com') }}"
+new_host_alias: "{{ ec2_name_tag_choice if (ec2_name_tag_choice is defined and ec2_name_tag_choice != '') else new_host_alias_choice | default('alias.ansible.com') }}"
 new_host_ip_addr: "{{ nios_next_ip_address | default('192.168.0.1') }}"
 new_host_comment: "{{ new_host_comment_choice | default('Host managed by Ansible') }}"
