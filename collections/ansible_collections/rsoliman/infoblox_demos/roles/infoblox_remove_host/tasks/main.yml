@@ -14,3 +14,7 @@
     status_code: 201
     body_format: json
     validate_certs: false
+  register: result
+  ignore_errors: true
+  failed_when: "The operation returned an empty list" not in result.json.Error
+
