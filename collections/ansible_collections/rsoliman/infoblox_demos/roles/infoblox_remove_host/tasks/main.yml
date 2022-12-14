@@ -6,7 +6,7 @@
     password: "{{ infoblox_password }}"
     method: POST
     body: "[{\"method\":
-\"STATE:ASSIGN\",\"data\":{\"host_name\":\"{{ new_host_name }}\"}},{\"method\":\"GET\",\"object\":
+\"STATE:ASSIGN\",\"data\":{\"host_name\":\"{{ new_host_name | lower }}\"}},{\"method\":\"GET\",\"object\":
 \"record:host\",\"data\": {\"name\":\"##STATE:host_name:##\"},\"assign_state\": {\"host_ref\":
 \"_ref\"},\"enable_substitution\": true,\"discard\": true},{ \"method\": \"DELETE\", \"object\":
 \"##STATE:host_ref:##\",\"enable_substitution\": true,\"discard\": true},{\"method\": \"STATE:DISPLAY\"}]"
